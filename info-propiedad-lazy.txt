@@ -1,0 +1,11 @@
+La propiedad lazy en una relación definida con SQLAlchemy en Flask controla cuándo y cómo se cargan los objetos relacionados desde la base de datos. Básicamente, afecta la estrategia de carga utilizada por SQLAlchemy cuando accedes a los objetos relacionados.
+
+Existen tres opciones principales para la propiedad lazy en una relación:
+
+select (carga selectiva): Carga los objetos relacionados desde la base de datos en el momento en que se accede a ellos por primera vez. Por ejemplo, si tienes una relación uno a muchos entre un autor y sus libros, cargaría los libros del autor cuando accedas a la propiedad autor.libros.
+
+joined (carga conjunta): Realiza una consulta SQL que une las tablas relacionadas para cargar los objetos relacionados en una sola consulta. Esta opción puede ser útil cuando sabes que vas a acceder a los objetos relacionados y deseas minimizar la cantidad de consultas a la base de datos.
+
+subquery (consulta en subconsulta): Similar a joined, pero en lugar de unir las tablas directamente, realiza una subconsulta para cargar los objetos relacionados. Puede ser útil en situaciones en las que joined podría generar consultas muy complejas.
+
+Por defecto, si no especificas la propiedad lazy, SQLAlchemy utiliza la opción select.
