@@ -1,0 +1,11 @@
+
+cursos_users
+------------------
+curso_id | user_id
+1        |      1
+1        |      1 
+
+Error no puede haber dos registros con los mismos datos 
+
+
+
